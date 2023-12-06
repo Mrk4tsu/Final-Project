@@ -1,2 +1,5 @@
-## APP QUẢN LÝ KHO HÀNG
-Ứng dụng dự án cá nhân môn Thiết kế thiết bị di động
+# 63CNTT-Mobile-Dev: ỨNG DỤNG QUẢN LÝ KHO HÀNG
+> Sinh viên: Nguyễn Đức Thắng 63 CNTT-CLC 2
+
+#### Preview:
+ ![image](https://github.com/Mrk4tsu/QuanLyKhohang/blob/main/Preview/preview.gif)
