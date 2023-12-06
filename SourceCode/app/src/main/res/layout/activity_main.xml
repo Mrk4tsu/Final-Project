@@ -16,19 +16,27 @@
         android:layout_marginStart="@dimen/activity_vertical_margin"
         android:layout_marginEnd="@dimen/activity_vertical_margin"
         android:layout_marginBottom="7dp"
+        android:scrollbarStyle="insideOverlay"
         android:layout_above="@+id/bottom_nav"/>
-
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btn_add_product"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/bottom_nav"
+        android:layout_alignEnd="@+id/bottom_nav"
+        android:layout_margin="10dp"
+        android:src="@drawable/ic_add"/>
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@drawable/bottom_nav_background"
-        android:layout_marginBottom="@dimen/activity_vertical_margin"
         android:layout_marginStart="@dimen/activity_vertical_margin"
         android:layout_marginEnd="@dimen/activity_vertical_margin"
-        app:menu="@menu/menu_bottom_nav"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/bottom_nav_background"
+        android:elevation="8dp"
         app:itemIconTint="@color/custom_color_bottom_nav"
         app:itemTextColor="@color/whiteTextColor"
-        android:elevation="8dp"/>
+        app:menu="@menu/menu_bottom_nav" />
 </RelativeLayout>
