@@ -2,7 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="16dp"
+    android:padding="7dp"
     android:background="@drawable/panel_white">
         <LinearLayout
             android:id="@+id/main_content_home"
@@ -38,7 +38,9 @@
                     android:layout_width="0dp"
                     android:layout_height="150dp"
                     android:layout_weight="1"
+                    android:gravity="center"
                     android:background="@drawable/custom_item_panel"
+                    android:orientation="vertical"
                     android:layout_margin="@dimen/activity_vertical_margin">
                     <TextView
                         android:layout_width="match_parent"
@@ -46,23 +48,51 @@
                         android:text="Hàng trong kho"
                         android:textColor="@color/whiteTextColor"
                         android:textAlignment="center"
-                        android:layout_margin="@dimen/activity_vertical_margin"
+                        android:textStyle="bold"
                         android:textSize="@dimen/text_normal_size"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textSize="40sp"
+                        android:textColor="@color/whiteTextColor"
+                        android:textAlignment="center"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Xem ngay"
+                        android:layout_marginStart="@dimen/activity_vertical_margin"
+                        android:textColor="@color/whiteTextColor"/>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="150dp"
                     android:layout_weight="1"
+                    android:gravity="center"
                     android:layout_margin="@dimen/activity_vertical_margin"
+                    android:orientation="vertical"
                     android:background="@drawable/custom_item_panel">
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Hàng mới nhập"
+                        android:textStyle="bold"
                         android:textColor="@color/whiteTextColor"
                         android:textAlignment="center"
-                        android:layout_margin="@dimen/activity_vertical_margin"
                         android:textSize="@dimen/text_normal_size"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textSize="40sp"
+                        android:textColor="@color/whiteTextColor"
+                        android:textAlignment="center"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Xem ngay"
+                        android:layout_marginStart="@dimen/activity_vertical_margin"
+                        android:textColor="@color/whiteTextColor"/>
                 </LinearLayout>
             </LinearLayout>
             <LinearLayout
@@ -73,66 +103,61 @@
                     android:layout_width="0dp"
                     android:layout_height="150dp"
                     android:layout_weight="1"
+                    android:gravity="center"
                     android:layout_margin="@dimen/activity_vertical_margin"
+                    android:orientation="vertical"
                     android:background="@drawable/custom_item_panel">
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Hàng sắp/đã hết"
+                        android:textStyle="bold"
                         android:textColor="@color/whiteTextColor"
                         android:textAlignment="center"
-                        android:layout_margin="@dimen/activity_vertical_margin"
                         android:textSize="@dimen/text_normal_size"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textSize="40sp"
+                        android:textColor="@color/whiteTextColor"
+                        android:textAlignment="center"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Xem ngay"
+                        android:layout_marginStart="@dimen/activity_vertical_margin"
+                        android:textColor="@color/whiteTextColor"/>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="150dp"
                     android:layout_weight="1"
+                    android:gravity="center"
                     android:layout_margin="@dimen/activity_vertical_margin"
+                    android:orientation="vertical"
                     android:background="@drawable/custom_item_panel">
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Thống kê"
+                        android:textStyle="bold"
                         android:textColor="@color/whiteTextColor"
                         android:textAlignment="center"
-                        android:layout_margin="@dimen/activity_vertical_margin"
                         android:textSize="@dimen/text_normal_size"/>
-                </LinearLayout>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="150dp"
-                    android:layout_weight="1"
-                    android:layout_margin="@dimen/activity_vertical_margin"
-                    android:background="@drawable/custom_item_panel">
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Hàng sắp/đã hết"
+                        android:text="0"
+                        android:textSize="40sp"
                         android:textColor="@color/whiteTextColor"
-                        android:textAlignment="center"
-                        android:layout_margin="@dimen/activity_vertical_margin"
-                        android:textSize="@dimen/text_normal_size"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="150dp"
-                    android:layout_weight="1"
-                    android:layout_margin="@dimen/activity_vertical_margin"
-                    android:background="@drawable/custom_item_panel">
+                        android:textAlignment="center"/>
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Thống kê"
-                        android:textColor="@color/whiteTextColor"
-                        android:textAlignment="center"
-                        android:layout_margin="@dimen/activity_vertical_margin"
-                        android:textSize="@dimen/text_normal_size"/>
+                        android:text="Xem ngay"
+                        android:layout_marginStart="@dimen/activity_vertical_margin"
+                        android:textColor="@color/whiteTextColor"/>
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>

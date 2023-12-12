@@ -12,11 +12,14 @@ import android.view.View;
 import android.widget.Button;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationBarView;
+import com.ndthang.quanlykhohang.activities.AddProductActivity;
 import com.ndthang.quanlykhohang.adapters.ViewPagerAdapter;
 import com.ndthang.quanlykhohang.helper.Utilities;
 
 public class MainActivity extends AppCompatActivity {
+    FloatingActionButton btnGoToAddProduct;
     private BottomNavigationView bottomNavigationView;
     private ViewPager viewPager;
     @Override
@@ -60,6 +63,16 @@ public class MainActivity extends AppCompatActivity {
         });
     }
     private void actionAnonymous(){
+        btnGoToAddProduct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, AddProductActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+        //Sự kiện bottom nav
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -79,5 +92,6 @@ public class MainActivity extends AppCompatActivity {
     private void getUI(){
         viewPager = findViewById(R.id.view_pager);
         bottomNavigationView = findViewById(R.id.bottom_nav);
+        btnGoToAddProduct = findViewById(R.id.btn_go_to_add_product);
     }
 }
