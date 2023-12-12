@@ -3,34 +3,46 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:padding="16dp">
+    android:padding="3dp">
     <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="2"
-        android:orientation="vertical">
-        <TextView
-            android:id="@+id/textViewProductName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:text="Tên sản phẩm"
-            android:textStyle="bold"/>
-        <TextView
-            android:id="@+id/textViewProductQuantity"
-            android:layout_width="match_parent"
-            android:text="Số lượng"
-            android:layout_height="wrap_content"/>
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/card_panel"
+        android:padding="15dp">
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:src="@mipmap/itemdefault"/>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/textViewProductName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/textOrange"
+                android:textSize="18sp"
+                android:text="Tên sản phẩm"
+                android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/textViewProductQuantity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/textColorSecondary"
+                android:text="Số lượng"
+                android:paddingStart="15dp" />
 
-        <TextView
-            android:id="@+id/textViewProductPrice"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Giá tiền"/>
+            <TextView
+                android:id="@+id/textViewProductPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="15dp"
+                android:textColor="@color/textColorPrimary"
+                android:text="Giá tiền"/>
+        </LinearLayout>
     </LinearLayout>
-    <ImageView
-        android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:layout_weight="1"
-        android:src="@mipmap/itemdefault"/>
+
 </LinearLayout>

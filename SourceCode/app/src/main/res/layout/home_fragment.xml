@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="7dp"
-    android:background="@drawable/panel_white">
+    android:background="@drawable/card_panel">
         <LinearLayout
             android:id="@+id/main_content_home"
             android:layout_width="match_parent"
@@ -16,12 +16,13 @@
                 android:text="Trang Chủ"
                 android:textSize="@dimen/headerTextSize"
                 android:textStyle="bold"
-                android:textColor="@color/colorPrimary"/>
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:layout_margin="@dimen/activity_vertical_margin"
-                android:src="@mipmap/avatar" />
+                android:textColor="@color/textOrange"/>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_margin="@dimen/activity_vertical_margin"
+                android:src="@mipmap/gamelogo" />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -29,10 +30,11 @@
                 android:text="CÁC CHỨC NĂNG QUẢN LÝ"
                 android:textSize="@dimen/text_normal_size"
                 android:textStyle="bold"
-                android:textColor="@color/colorPrimary"/>
+                android:textColor="@color/textColorSecondary"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:orientation="horizontal">
                 <LinearLayout
                     android:layout_width="0dp"
@@ -46,7 +48,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Hàng trong kho"
-                        android:textColor="@color/whiteTextColor"
+                        android:textColor="@color/textWhiteColor"
                         android:textAlignment="center"
                         android:textStyle="bold"
                         android:textSize="@dimen/text_normal_size"/>
@@ -56,14 +58,14 @@
                         android:layout_height="wrap_content"
                         android:text="0"
                         android:textSize="40sp"
-                        android:textColor="@color/whiteTextColor"
+                        android:textColor="@color/textWhiteColor"
                         android:textAlignment="center"/>
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Xem ngay"
                         android:layout_marginStart="@dimen/activity_vertical_margin"
-                        android:textColor="@color/whiteTextColor"/>
+                        android:textColor="@color/textWhiteColor"/>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="0dp"
@@ -78,7 +80,7 @@
                         android:layout_height="wrap_content"
                         android:text="Hàng mới nhập"
                         android:textStyle="bold"
-                        android:textColor="@color/whiteTextColor"
+                        android:textColor="@color/textWhiteColor"
                         android:textAlignment="center"
                         android:textSize="@dimen/text_normal_size"/>
                     <TextView
@@ -86,14 +88,14 @@
                         android:layout_height="wrap_content"
                         android:text="0"
                         android:textSize="40sp"
-                        android:textColor="@color/whiteTextColor"
+                        android:textColor="@color/textWhiteColor"
                         android:textAlignment="center"/>
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Xem ngay"
                         android:layout_marginStart="@dimen/activity_vertical_margin"
-                        android:textColor="@color/whiteTextColor"/>
+                        android:textColor="@color/textWhiteColor"/>
                 </LinearLayout>
             </LinearLayout>
             <LinearLayout
@@ -113,7 +115,7 @@
                         android:layout_height="wrap_content"
                         android:text="Hàng sắp/đã hết"
                         android:textStyle="bold"
-                        android:textColor="@color/whiteTextColor"
+                        android:textColor="@color/textWhiteColor"
                         android:textAlignment="center"
                         android:textSize="@dimen/text_normal_size"/>
                     <TextView
@@ -121,14 +123,14 @@
                         android:layout_height="wrap_content"
                         android:text="0"
                         android:textSize="40sp"
-                        android:textColor="@color/whiteTextColor"
+                        android:textColor="@color/textWhiteColor"
                         android:textAlignment="center"/>
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Xem ngay"
                         android:layout_marginStart="@dimen/activity_vertical_margin"
-                        android:textColor="@color/whiteTextColor"/>
+                        android:textColor="@color/textWhiteColor"/>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="0dp"
@@ -143,7 +145,7 @@
                         android:layout_height="wrap_content"
                         android:text="Thống kê"
                         android:textStyle="bold"
-                        android:textColor="@color/whiteTextColor"
+                        android:textColor="@color/textWhiteColor"
                         android:textAlignment="center"
                         android:textSize="@dimen/text_normal_size"/>
                     <TextView
@@ -151,14 +153,14 @@
                         android:layout_height="wrap_content"
                         android:text="0"
                         android:textSize="40sp"
-                        android:textColor="@color/whiteTextColor"
+                        android:textColor="@color/textWhiteColor"
                         android:textAlignment="center"/>
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Xem ngay"
                         android:layout_marginStart="@dimen/activity_vertical_margin"
-                        android:textColor="@color/whiteTextColor"/>
+                        android:textColor="@color/textWhiteColor"/>
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
