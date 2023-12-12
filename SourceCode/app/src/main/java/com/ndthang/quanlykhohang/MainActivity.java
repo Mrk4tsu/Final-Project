@@ -5,31 +5,68 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import android.annotation.SuppressLint;
+import android.content.ContentValues;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
+import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationBarView;
 import com.ndthang.quanlykhohang.activities.AddProductActivity;
+import com.ndthang.quanlykhohang.adapters.ProductAdapter;
 import com.ndthang.quanlykhohang.adapters.ViewPagerAdapter;
+import com.ndthang.quanlykhohang.databases.DatabaseHelper;
+import com.ndthang.quanlykhohang.fragments.HomeFragment;
 import com.ndthang.quanlykhohang.helper.Utilities;
 
 public class MainActivity extends AppCompatActivity {
+    TextView quantityProduct;
     FloatingActionButton btnGoToAddProduct;
     private BottomNavigationView bottomNavigationView;
     private ViewPager viewPager;
+
+    private DatabaseHelper dbHelper;
+    private SQLiteDatabase db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
         getUI();
 
+        // Khởi tạo DatabaseHelper
+        dbHelper = new DatabaseHelper(this);
+        db = dbHelper.getWritableDatabase();
         setUpViewPager();
         actionAnonymous();
+    }
+
+    private int laySoLuongNguoiDung() {
+        String query = "SELECT COUNT(*) FROM " + DatabaseHelper.TABLE_PRODUCT;
+        Cursor cursor = db.rawQuery(query, null);
+
+        int soLuong = 0;
+
+        if (cursor != null) {
+            try {
+                if (cursor.moveToFirst()) {
+                    soLuong = cursor.getInt(0);
+                }
+            } finally {
+                cursor.close();
+            }
+        }
+
+        return soLuong;
     }
     private void setUpViewPager(){
         ViewPagerAdapter pagerAdapter = new ViewPagerAdapter(getSupportFragmentManager(), FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
@@ -93,5 +130,13 @@ public class MainActivity extends AppCompatActivity {
         viewPager = findViewById(R.id.view_pager);
         bottomNavigationView = findViewById(R.id.bottom_nav);
         btnGoToAddProduct = findViewById(R.id.btn_go_to_add_product);
+        quantityProduct = findViewById(R.id.quantity_product);
+    }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (db != null && db.isOpen()) {
+            db.close();
+        }
     }
 }
