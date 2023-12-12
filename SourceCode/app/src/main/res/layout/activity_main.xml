@@ -18,14 +18,18 @@
         android:layout_marginBottom="7dp"
         android:scrollbarStyle="insideOverlay"
         android:layout_above="@+id/bottom_nav"/>
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/btn_add_product"
+        android:id="@+id/btn_go_to_add_product"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/bottom_nav"
         android:layout_alignEnd="@+id/bottom_nav"
-        android:layout_margin="10dp"
-        android:src="@drawable/ic_add"/>
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/ic_add" />
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav"
         android:layout_width="match_parent"
