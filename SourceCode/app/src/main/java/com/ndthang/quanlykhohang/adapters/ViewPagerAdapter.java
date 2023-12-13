@@ -4,12 +4,11 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
-import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-import com.ndthang.quanlykhohang.fragments.HomeFragment;
-import com.ndthang.quanlykhohang.fragments.ProductFragment;
-import com.ndthang.quanlykhohang.fragments.StatisticalFragment;
-import com.ndthang.quanlykhohang.helper.Utilities;
+import com.ndthang.quanlykhohang.Utilities;
+import com.ndthang.quanlykhohang.activities.fragments.HomeFragment;
+import com.ndthang.quanlykhohang.activities.fragments.ProductFragment;
+import com.ndthang.quanlykhohang.activities.fragments.StatisticalFragment;
 
 public class ViewPagerAdapter extends FragmentStatePagerAdapter {
     public static final int HOME_FRAGMENT = 0;

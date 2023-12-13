@@ -5,68 +5,60 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
-import android.annotation.SuppressLint;
-import android.content.ContentValues;
 import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ListView;
-import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationBarView;
 import com.ndthang.quanlykhohang.activities.AddProductActivity;
-import com.ndthang.quanlykhohang.adapters.ProductAdapter;
 import com.ndthang.quanlykhohang.adapters.ViewPagerAdapter;
 import com.ndthang.quanlykhohang.databases.DatabaseHelper;
-import com.ndthang.quanlykhohang.fragments.HomeFragment;
-import com.ndthang.quanlykhohang.helper.Utilities;
+import com.ndthang.quanlykhohang.entities.Product;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    TextView quantityProduct;
     FloatingActionButton btnGoToAddProduct;
     private BottomNavigationView bottomNavigationView;
     private ViewPager viewPager;
-
-    private DatabaseHelper dbHelper;
-    private SQLiteDatabase db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
         getUI();
-
-        // Khởi tạo DatabaseHelper
-        dbHelper = new DatabaseHelper(this);
-        db = dbHelper.getWritableDatabase();
         setUpViewPager();
         actionAnonymous();
     }
-
-    private int laySoLuongNguoiDung() {
-        String query = "SELECT COUNT(*) FROM " + DatabaseHelper.TABLE_PRODUCT;
-        Cursor cursor = db.rawQuery(query, null);
-
-        int soLuong = 0;
-
-        if (cursor != null) {
-            try {
-                if (cursor.moveToFirst()) {
-                    soLuong = cursor.getInt(0);
-                }
-            } finally {
-                cursor.close();
+    private void actionAnonymous(){
+        btnGoToAddProduct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, AddProductActivity.class);
+                startActivity(intent);
             }
-        }
+        });
 
-        return soLuong;
+
+        //Sự kiện bottom nav
+        bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                if (item.getItemId() == R.id.action_home){
+                    viewPager.setCurrentItem(ViewPagerAdapter.HOME_FRAGMENT);
+                }
+                if (item.getItemId() == R.id.action_product){
+                    viewPager.setCurrentItem(ViewPagerAdapter.PRODUCT_FRAGMENT);
+                }
+                if (item.getItemId() == R.id.action_statistical){
+                    viewPager.setCurrentItem(ViewPagerAdapter.STATISTICAL_FRAGMENT);
+                }
+                return true;
+            }
+        });
     }
     private void setUpViewPager(){
         ViewPagerAdapter pagerAdapter = new ViewPagerAdapter(getSupportFragmentManager(), FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
@@ -99,44 +91,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-    private void actionAnonymous(){
-        btnGoToAddProduct.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, AddProductActivity.class);
-                startActivity(intent);
-            }
-        });
-
-
-        //Sự kiện bottom nav
-        bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                if (item.getItemId() == R.id.action_home){
-                    viewPager.setCurrentItem(ViewPagerAdapter.HOME_FRAGMENT);
-                }
-                if (item.getItemId() == R.id.action_product){
-                    viewPager.setCurrentItem(ViewPagerAdapter.PRODUCT_FRAGMENT);
-                }
-                if (item.getItemId() == R.id.action_statistical){
-                    viewPager.setCurrentItem(ViewPagerAdapter.STATISTICAL_FRAGMENT);
-                }
-                return true;
-            }
-        });
-    }
     private void getUI(){
         viewPager = findViewById(R.id.view_pager);
         bottomNavigationView = findViewById(R.id.bottom_nav);
         btnGoToAddProduct = findViewById(R.id.btn_go_to_add_product);
-        quantityProduct = findViewById(R.id.quantity_product);
-    }
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        if (db != null && db.isOpen()) {
-            db.close();
-        }
     }
 }

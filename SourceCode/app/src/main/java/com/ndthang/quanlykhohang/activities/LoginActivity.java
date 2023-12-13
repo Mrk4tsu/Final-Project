@@ -1,4 +1,4 @@
-package com.ndthang.quanlykhohang;
+package com.ndthang.quanlykhohang.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.ndthang.quanlykhohang.MainActivity;
+import com.ndthang.quanlykhohang.R;
 
 public class LoginActivity extends AppCompatActivity {
     private TextView linkGoRegister;
@@ -18,7 +21,6 @@ public class LoginActivity extends AppCompatActivity {
         getUI();
         actionAnonymous();
     }
-
     private void actionAnonymous() {
         linkGoRegister.setOnClickListener(new View.OnClickListener() {
             @Override

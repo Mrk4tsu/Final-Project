@@ -1,4 +1,4 @@
-package com.ndthang.quanlykhohang.fragments;
+package com.ndthang.quanlykhohang.activities.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
