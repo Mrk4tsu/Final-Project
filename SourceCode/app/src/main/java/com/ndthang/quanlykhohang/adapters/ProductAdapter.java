@@ -1,48 +1,66 @@
 package com.ndthang.quanlykhohang.adapters;
 
-import android.content.Context;
-import android.database.Cursor;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CursorAdapter;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.ndthang.quanlykhohang.R;
-import com.ndthang.quanlykhohang.databases.DatabaseHelper;
+import com.ndthang.quanlykhohang.entities.Product;
 
-public class ProductAdapter extends CursorAdapter {
-    public ProductAdapter(Context context, Cursor cursor) {
-        super(context, cursor, 0);
+import java.util.List;
+
+public class ProductAdapter  extends RecyclerView.Adapter<ProductAdapter.ProductViewHolder>{
+    private List<Product> productList;
+
+    public void setData(List<Product> list) {
+        this.productList = list;
+        notifyDataSetChanged();
     }
+    @NonNull
     @Override
-    public View newView(Context context, Cursor cursor, ViewGroup parent) {
-        return LayoutInflater.from(context).inflate(R.layout.item_product, parent, false);
+    public ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.product_item, parent, false);
+        return new ProductViewHolder(view);
     }
+
     @Override
-    public void bindView(View view, Context context, Cursor cursor) {
-        TextView textViewProductName = view.findViewById(R.id.textViewProductName);
-        TextView textViewProductQuantity = view.findViewById(R.id.textViewProductQuantity);
-        TextView textViewProductPrice = view.findViewById(R.id.textViewProductPrice);
-
-        // Kiểm tra xem cột có tồn tại trong Cursor không
-        int indexProductName = cursor.getColumnIndex(DatabaseHelper.PRODUCT_COLUMN_NAME);
-        int indexProductQuantity = cursor.getColumnIndex(DatabaseHelper.PRODUCT_COLUMN_QUANTITY);
-        int indexProductPrice = cursor.getColumnIndex(DatabaseHelper.PRODUCT_COLUMN_PRICE);
-
-        if (indexProductName != -1) {
-            String productName = cursor.getString(indexProductName);
-            textViewProductName.setText(productName);
+    public void onBindViewHolder(@NonNull ProductViewHolder holder, int position) {
+        Product product = productList.get(position);
+        if (product == null) {
+            return;
         }
+        holder.textViewProductName.setText(product.getName());
+        holder.textViewProductQuantity.setText("Số lượng:" + product.getQuantity());
+        holder.textViewProductPrice.setText("Giá:" + product.getPrice() + "đ");
+    }
 
-        if (indexProductQuantity != -1) {
-            int productQuantity = cursor.getInt(indexProductQuantity);
-            textViewProductQuantity.setText("Quantity: " + productQuantity);
+    @Override
+    public int getItemCount() {
+        if (productList != null) {
+            return productList.size();
         }
+        return 0;
+    }
 
-        if (indexProductPrice != -1) {
-            double productPrice = cursor.getDouble(indexProductPrice);
-            textViewProductPrice.setText("Price: " + productPrice);
+    public class ProductViewHolder extends RecyclerView.ViewHolder{
+        TextView textViewProductName;
+        TextView textViewProductQuantity;
+        TextView textViewProductPrice;
+
+        /**
+         * Đây là một comment sử dụng cú pháp giống như Javadoc trong XML.
+         * @param itemView Tham số ví dụ
+         **/
+        public ProductViewHolder(@NonNull View itemView) {
+            super(itemView);
+
+            textViewProductName = itemView.findViewById(R.id.textViewProductName);
+            textViewProductPrice = itemView.findViewById(R.id.textViewProductPrice);
+            textViewProductQuantity = itemView.findViewById(R.id.textViewProductQuantity);
         }
     }
 }

@@ -16,19 +16,13 @@
             android:name=".activities.AddProductActivity"
             android:exported="false" />
         <activity
-            android:name=".fragments.HomeFragment"
-            android:exported="false" />
-        <activity
-            android:name=".fragments.ProductFragment"
-            android:exported="false" />
-        <activity
-            android:name=".RegisterActivity"
+            android:name=".activities.RegisterActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".activities.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
