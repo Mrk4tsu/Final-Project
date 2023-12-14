@@ -44,7 +44,7 @@
                 android:text="Giá tiền"/>
         </LinearLayout>
         <Button
-            android:id="@+id/buttonDelete"
+            android:id="@+id/buttonUpdateProduct"
             android:layout_gravity="center"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

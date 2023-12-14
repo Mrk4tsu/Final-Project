@@ -14,6 +14,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationBarView;
 import com.ndthang.quanlykhohang.activities.AddProductActivity;
+import com.ndthang.quanlykhohang.adapters.ProductAdapter;
 import com.ndthang.quanlykhohang.adapters.ViewPagerAdapter;
 import com.ndthang.quanlykhohang.databases.DatabaseHelper;
 import com.ndthang.quanlykhohang.entities.Product;
@@ -25,12 +26,19 @@ public class MainActivity extends AppCompatActivity {
     FloatingActionButton btnGoToAddProduct;
     private BottomNavigationView bottomNavigationView;
     private ViewPager viewPager;
+    private ProductAdapter productAdapter;
+    public List<Product> mProductList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getUI();
         setUpViewPager();
+
+        mProductList = new ArrayList<>();
+        productAdapter = new ProductAdapter();
+        loadData();
+
         actionAnonymous();
     }
     private void actionAnonymous(){
@@ -95,5 +103,9 @@ public class MainActivity extends AppCompatActivity {
         viewPager = findViewById(R.id.view_pager);
         bottomNavigationView = findViewById(R.id.bottom_nav);
         btnGoToAddProduct = findViewById(R.id.btn_go_to_add_product);
+    }
+    private void loadData(){
+        mProductList = DatabaseHelper.getInstance(this).productDAO().getListProduct();
+        productAdapter.setData(mProductList);
     }
 }

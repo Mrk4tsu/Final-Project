@@ -65,6 +65,10 @@ public class AddProductActivity extends AppCompatActivity {
         int quantity = Integer.parseInt(strQuantity);
         double price = Double.parseDouble(strPrice);
         Product product = new Product(strName, quantity, price);
+        if (isExistProduct(product)){
+            Utilities.addInfo(this, "Đã tồn tại sản phẩm này rồi!");
+            return;
+        }
         DatabaseHelper.getInstance(this).productDAO().insertProduct(product);
         Utilities.addInfo(this, "Thêm sản phẩm thành công!");
 
@@ -73,6 +77,10 @@ public class AddProductActivity extends AppCompatActivity {
         priceProduct.setText("");
 
         hideSoftKeyboard();
+    }
+    boolean isExistProduct(Product product){
+        List<Product> list = DatabaseHelper.getInstance(this).productDAO().productsExist(product.getName());
+        return list != null && !list.isEmpty();
     }
     void getUI(){
         linkGoToHome = findViewById(R.id.go_to_home);

@@ -3,6 +3,7 @@ package com.ndthang.quanlykhohang.adapters;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -13,8 +14,18 @@ import com.ndthang.quanlykhohang.entities.Product;
 
 import java.util.List;
 
-public class ProductAdapter  extends RecyclerView.Adapter<ProductAdapter.ProductViewHolder>{
+public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductViewHolder>{
     private List<Product> productList;
+    private IClickItemProduct clickUpdateProduct;
+    public interface IClickItemProduct{
+        void updateProduct(Product product);
+    }
+    public ProductAdapter(){
+
+    }
+    public ProductAdapter(IClickItemProduct clickUpdateProduct) {
+        this.clickUpdateProduct = clickUpdateProduct;
+    }
 
     public void setData(List<Product> list) {
         this.productList = list;
@@ -29,13 +40,20 @@ public class ProductAdapter  extends RecyclerView.Adapter<ProductAdapter.Product
 
     @Override
     public void onBindViewHolder(@NonNull ProductViewHolder holder, int position) {
-        Product product = productList.get(position);
+        final Product product = productList.get(position);
         if (product == null) {
             return;
         }
         holder.textViewProductName.setText(product.getName());
         holder.textViewProductQuantity.setText("Số lượng:" + product.getQuantity());
         holder.textViewProductPrice.setText("Giá:" + product.getPrice() + "đ");
+
+        holder.buttonUpdateProduct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                clickUpdateProduct.updateProduct(product);
+            }
+        });
     }
 
     @Override
@@ -50,6 +68,7 @@ public class ProductAdapter  extends RecyclerView.Adapter<ProductAdapter.Product
         TextView textViewProductName;
         TextView textViewProductQuantity;
         TextView textViewProductPrice;
+        Button buttonUpdateProduct;
 
         /**
          * Đây là một comment sử dụng cú pháp giống như Javadoc trong XML.
@@ -61,6 +80,7 @@ public class ProductAdapter  extends RecyclerView.Adapter<ProductAdapter.Product
             textViewProductName = itemView.findViewById(R.id.textViewProductName);
             textViewProductPrice = itemView.findViewById(R.id.textViewProductPrice);
             textViewProductQuantity = itemView.findViewById(R.id.textViewProductQuantity);
+            buttonUpdateProduct = itemView.findViewById(R.id.buttonUpdateProduct);
         }
     }
 }
