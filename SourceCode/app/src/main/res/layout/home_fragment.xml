@@ -1,20 +1,153 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/dark_orange"
-    android:orientation="vertical">
-    <TextView
+    android:layout_height="match_parent">
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="ĐÂY LÀ TRANG CHỦ"
-        android:textAlignment="center"
-        android:gravity="center"
-        android:textColor="@color/grey_light"
-        android:textSize="40sp"/>
-    <Button
-        android:id="@+id/testbtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Test"/>
-</LinearLayout>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/card_radius_bottom"
+            android:padding="20dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Chào buổi sáng"
+                android:textStyle="bold"
+                android:textColor="@color/textWhiteColor"
+                android:textSize="@dimen/text_normal_size"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/largeTextSize"
+                android:text="14/12/2023"
+                android:textStyle="bold"
+                android:textColor="@color/light_orange"/>
+        </LinearLayout>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginVertical="@dimen/activity_vertical_margin"
+            android:src="@mipmap/gamelogo"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="XEM BẢNG THỐNG KÊ"
+            android:textSize="@dimen/headerTextSize"
+            android:textColor="@color/grey_light"
+            android:textAlignment="center"
+            android:textStyle="bold"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/activity_vertical_margin"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="60dp"
+                android:gravity="center"
+                android:text="Ngày: "
+                android:textSize="@dimen/text_normal_size"
+                android:textColor="@color/textColorPrimary"
+                android:textStyle="bold"
+                android:textAllCaps="true"
+                android:padding="15dp"
+                android:drawableEnd="@drawable/ic_go_right"
+                android:layout_marginTop="10dp"
+                android:layout_marginHorizontal="3dp"
+                android:background="@drawable/card_view_infomation"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="60dp"
+                android:gravity="center"
+                android:text="Tuần: "
+                android:textSize="@dimen/text_normal_size"
+                android:textColor="@color/textColorPrimary"
+                android:textStyle="bold"
+                android:textAllCaps="true"
+                android:padding="15dp"
+                android:drawableEnd="@drawable/ic_go_right"
+                android:layout_marginTop="10dp"
+                android:layout_marginHorizontal="3dp"
+                android:background="@drawable/card_view_infomation"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="60dp"
+                android:gravity="center"
+                android:text="Tháng: "
+                android:textSize="@dimen/text_normal_size"
+                android:textColor="@color/textColorPrimary"
+                android:textStyle="bold"
+                android:padding="15dp"
+                android:textAllCaps="true"
+                android:drawableEnd="@drawable/ic_go_right"
+                android:layout_marginTop="10dp"
+                android:layout_marginHorizontal="3dp"
+                android:background="@drawable/card_view_infomation"/>
+        </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="XEM BẢNG DANH SÁCH"
+            android:textSize="@dimen/headerTextSize"
+            android:textColor="@color/grey_light"
+            android:textAlignment="center"
+            android:textStyle="bold"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="3dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tổng số lượng trong kho: "
+                android:textSize="@dimen/text_normal_size"
+                android:textColor="@color/textColorPrimary"
+                android:textStyle="bold"
+                android:padding="15dp"
+                android:drawableEnd="@drawable/ic_go_right"
+                android:background="@drawable/card_view_infomation"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sản phẩm đã/sắp hết trong kho: "
+                android:textSize="@dimen/text_normal_size"
+                android:textColor="@color/textColorPrimary"
+                android:textStyle="bold"
+                android:padding="15dp"
+                android:drawableEnd="@drawable/ic_go_right"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/card_view_infomation"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sản phẩm mới nhập trong kho: "
+                android:textSize="@dimen/text_normal_size"
+                android:textColor="@color/textColorPrimary"
+                android:textStyle="bold"
+                android:padding="15dp"
+                android:drawableEnd="@drawable/ic_go_right"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/card_view_infomation"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sản phẩm đã bán: "
+                android:textSize="@dimen/text_normal_size"
+                android:textColor="@color/textColorPrimary"
+                android:textStyle="bold"
+                android:padding="15dp"
+                android:drawableEnd="@drawable/ic_go_right"
+                android:layout_marginVertical="10dp"
+                android:background="@drawable/card_view_infomation"/>
+
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

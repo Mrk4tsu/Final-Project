@@ -4,6 +4,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -19,6 +21,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     private IClickItemProduct clickUpdateProduct;
     public interface IClickItemProduct{
         void updateProduct(Product product);
+        void deleteProduct(Product product);
     }
     public ProductAdapter(){
 
@@ -54,6 +57,13 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
                 clickUpdateProduct.updateProduct(product);
             }
         });
+
+        holder.buttonDeleteProduct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clickUpdateProduct.deleteProduct(product);
+            }
+        });
     }
 
     @Override
@@ -68,7 +78,8 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         TextView textViewProductName;
         TextView textViewProductQuantity;
         TextView textViewProductPrice;
-        Button buttonUpdateProduct;
+        ImageButton buttonUpdateProduct;
+        ImageButton buttonDeleteProduct;
 
         /**
          * Đây là một comment sử dụng cú pháp giống như Javadoc trong XML.
@@ -81,6 +92,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
             textViewProductPrice = itemView.findViewById(R.id.textViewProductPrice);
             textViewProductQuantity = itemView.findViewById(R.id.textViewProductQuantity);
             buttonUpdateProduct = itemView.findViewById(R.id.buttonUpdateProduct);
+            buttonDeleteProduct = itemView.findViewById(R.id.buttonDeleteProduct);
         }
     }
 }

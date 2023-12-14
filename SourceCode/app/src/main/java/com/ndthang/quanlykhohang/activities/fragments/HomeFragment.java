@@ -15,21 +15,12 @@ import com.ndthang.quanlykhohang.R;
 import com.ndthang.quanlykhohang.activities.UpdateProductActivity;
 
 public class HomeFragment extends Fragment {
-    Button testbtn;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.home_fragment, container, false);
-        testbtn = view.findViewById(R.id.testbtn);
 
-        testbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), UpdateProductActivity.class);
-                startActivity(intent);
-            }
-        });
         return view;
-
     }
 }
