@@ -2,24 +2,5 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-
-    <!--Màu nền-->
-    <color name="brownish_orange">#924C31</color>
-    <color name="dark_orange">#FF5601</color>
-    <color name="light_orange">#FFAF4C</color>
-    <color name="grey_light">#f0f0f0</color>
-    <color name="light_brownish">#D98D42</color>
-    <color name="light_green">#59FC39</color>
-    <color name="milk_green">#4FF163</color>
-    <color name="dark_glass_green">#7FAD39</color>
-    <color name="dark_orange_green">#85D452</color>
-    <color name="dark_green">#34A042</color>
-    <color name="grey">#838383</color>
-
-
-    <!--Màu chữ-->
-    <color name="textOrange">#BA4105</color>
-    <color name="textColorPrimary">#1E5B7E</color>
-    <color name="textColorSecondary">#433A3A</color>
-    <color name="textWhiteColor">#fff</color>
+    <color name="backGround">#FFEDED</color>
 </resources>

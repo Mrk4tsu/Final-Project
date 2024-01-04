@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "792932233377",
+    "firebase_url": "https://quanlyquanan-a0ce6-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "quanlyquanan-a0ce6",
+    "storage_bucket": "quanlyquanan-a0ce6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:792932233377:android:cb98971647e58e13b600e0",
+        "android_client_info": {
+          "package_name": "com.ndthang.quanlyquanan"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhtT3e7Rat_Lpr61DiUdI2ZFfZ28pMoEM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

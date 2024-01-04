@@ -1,9 +1,10 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.QuanLyKhoHang" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    <style name="Base.Theme.QuanLyQuanAn" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
     </style>
-
-    <style name="Theme.QuanLyKhoHang" parent="Base.Theme.QuanLyKhoHang" />
+    <style name="Base.Theme.QuanLyQuanAn.ActionBar" parent="Theme.AppCompat.DayNight.DarkActionBar">
+    </style>
+    <style name="Theme.QuanLyQuanAn" parent="Base.Theme.QuanLyQuanAn" />
 </resources>
